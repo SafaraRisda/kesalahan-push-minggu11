@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Quiz</title>
+    </head>
+    <body>
+        <form onsubmit="??" action="Javascript:void(0);" method="post">
+            <input type="text" placeholder="Inputkan Nama" id="namaMhs">
+            <input type="submit" value="+">
+        </form>
+        <div id="counter">
+            <!--Dinamis (JavaScript)-->
+        </div>
+        <table border="1">
+            <thead>
+                <tr><td>Data Nama HMTI 2023</td></tr>
+            </thead>
+            <tbody id="daftarNama">
+                <!--Dinamis (JavaScript)-->
+            </tbody>
+        </table>
+        <script>
+            var apl = new function() {
+                this.el = document.getElementById('daftarNama');
+                this.mhs = ['Bita','Rehan','Juno','Rendi'];
+
+                this.barisAll = function() {
+                    var data = '';
+
+                    if (this.mhs.length > 0) {
+                        for (i = 0; i < this.mhs.length; i++) {
+                            data += '<tr>';
+                            data += '<td>'+ this.mhs[i] + '</td>';
+                            data += '</tr>';
+                        }
+                    }
+                    this.count(this.mhs.length);
+                    return this.el.innerHTML = data;
+                };
+                this.count = function(data) {
+                    var el = document.getElementById('counter');
+                    if (data) {
+                        el.innerHTML = 'Jumlah: '+ data + ' ' + 'Mahasiswa'
+                    } else {
+                        el.innerHTML = 'Data Kosong';
+                    }
+                };
+            this.addData = function () {
+                //counter
+            }
+        }
+            apl.barisAll();
+        </script>
+    </body>
+</html>
